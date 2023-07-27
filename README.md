@@ -21,3 +21,5 @@
 
 **Instalar dependencias**
 `$ composer install`
+
+php artisan make:controller PageController
