@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     //return view('welcome');
     return view("home");
-});
+})->name('home');
 
 Route::get('blog', function () {
   
@@ -31,7 +31,7 @@ Route::get('blog', function () {
     ];
 
     return view('blog', ['posts' => $posts]);
-});
+})->name('blog');
 
 Route::get('blog/{slug}', function ($slug) {
     //return view('welcome');
@@ -40,7 +40,7 @@ Route::get('blog/{slug}', function ($slug) {
     $post = $slug;
 
     return view('post', ['post' => $post]);
-});
+})->name('post');
 
 Route::get('buscar', function (Request $request) {
    //http://localhost/laravel9/larevel_prueba/public/buscar?query=php
