@@ -5,6 +5,9 @@
 **Clonar**
 `$ git clone githug.com/repositorio`
 
+**Instalar dependencias**
+`$ composer install`
+
 **Crear y cambiar rama**
 `$ git checkout -b nombrerama`
 
@@ -18,6 +21,3 @@
 `$git push --set-upstream origin nombrerama`
 **Subir cambios primera vez**
 `$git push`
-
-**Instalar dependencias**
-`$ composer install`
