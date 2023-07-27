@@ -28,4 +28,11 @@
 
 **Subir cambios primera vez**
 
+<<<<<<< HEAD
+**Instalar dependencias**
+`$ composer install`
+
+php artisan make:controller PageController
+=======
 `$git push`
+>>>>>>> 529798e5b9383731519bc7d2fd3abc96f8355d3c

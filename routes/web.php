@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\PageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,28 +20,22 @@ use Illuminate\Support\Facades\Route;
  |Route::delete Eliminar
  |Route::put Actualizar
 */
-Route::get('/', function () {
-    //return view('welcome');
-    return view("home");
-});
 
-Route::get('blog', function () {
-  
-    $posts = [
-        ['id'=> 1, 'title' => 'PHP', 'slug' => 'php'],
-        ['id'=> 2, 'title' => 'Laravel', 'slug' => 'laravel']
-    ];
 
-    return view('blog', ['posts' => $posts]);
-});
+/*Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('blog/{slug}', function ($slug) {
-    //return view('welcome');
-    //return "Listado de publicaciones: " . $slug;
+Route::get('blog', [PageController::class, 'blog'])->name('blog');
 
-    $post = $slug;
+Route::get('blog/{slug}', [PageController::class, 'post'])->name('post');*/
 
-    return view('post', ['post' => $post]);
+Route::controller(PageController::class)->group(function() {
+    
+    Route::get('/',             'home')->name('home');
+
+    Route::get('blog',          'blog')->name('blog');
+
+    Route::get('blog/{slug}',   'post')->name('post');
+
 });
 
 Route::get('buscar', function (Request $request) {
