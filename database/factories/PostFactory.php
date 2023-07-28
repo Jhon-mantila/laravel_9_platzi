@@ -19,8 +19,8 @@ class PostFactory extends Factory
     {   //esto para crear datos falsos
         return [
             'title' => $title = $this->faker->sentence(),
-            'slug' => Str::slug($title),
-            'body' => $this->faker->text(2200),
+            'slug' =>  Str::slug($title),
+            'body' =>  $this->faker->text(2200),
         ];
     }
 }
