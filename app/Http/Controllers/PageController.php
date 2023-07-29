@@ -27,7 +27,7 @@ class PageController extends Controller
         $posts = Post::latest()->paginate(); // para traer todos los registros orden desendente con paginado
 
         //Imprime información de una varibale
-        dd($posts);
+        //dd($posts);
     
         return view('blog', ['posts' => $posts]);
     }
