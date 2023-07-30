@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
 });
 //trabaja con todas las rutas menos con la ruta show
 //php artisan route:list
+//en la lista estaria los nombres para los metodos
 Route::resource('posts', PostController::class)->except(['show']);
 
 require __DIR__.'/auth.php';

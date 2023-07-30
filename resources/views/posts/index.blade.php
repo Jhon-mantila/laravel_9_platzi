@@ -20,7 +20,17 @@
                                 <a href="" class="text-indigo-600">Editar</a>
                             </td>
                             <td class="px-6 py-4">
-                                Elimiar
+                                <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                                    <!-- Crea una encriptación un token en value -->
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <input 
+                                        type="submit" 
+                                        value="Eliminar"
+                                        class="bg-gray-800 text-white rounded px-4 py-2"
+                                        onclick="return confirm('Deseas Eliminar?')">
+                                </form>
                             </td>
                         </tr>
                     @endforeach
