@@ -3,7 +3,7 @@
 <input type="text" name="title" class="rounded border-gray-200 w-full mb-4" value="{{ $post->title }}">
 
 <label for="" class="uppercase text-gray-700 text-xs">Contenido</label>
-<textarea name="nody" id=""  rows="5" class="rounded border-gray-200 w-full mb-4">{{ $post->body }}</textarea>
+<textarea name="body" id=""  rows="5" class="rounded border-gray-200 w-full mb-4">{{ $post->body }}</textarea>
 
 <div class="flex justify-between items-center">
     <a href="{{ route('posts.index') }}" class="text-indigo-600">Volver</a>
