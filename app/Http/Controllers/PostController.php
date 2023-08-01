@@ -25,12 +25,18 @@ class PostController extends Controller
         //dd($request);
         $request->validate([
             'title' => 'required',
+            'slug'  => 'required|unique:posts,slug',
             'body'  => 'required',
+        ],[
+            'title.required' => 'Este campo es requerido',
+            'slug.required'  => 'Colocar la url',
+            'slug.unique'    => 'La Url debe ser única',
+            'body.required'  => 'Se necesita mínimo un párrafo',
         ]);
 
         $post = $request->user()->posts()->create([
-            'title' => $title = $request->title,
-            'slug' => Str::slug($title),
+            'title' => $request->title,
+            'slug' => $request->slug,
             'body' => $request->body,
         ]);
         
@@ -48,11 +54,17 @@ class PostController extends Controller
         //dd($request);
         $request->validate([
             'title' => 'required',
+            'slug'  => 'required|unique:posts,slug,' .$post->id,
             'body'  => 'required',
+        ],[
+            'title.required' => 'Este campo es requerido',
+            'slug.required'  => 'Colocar la url',
+            'slug.unique'    => 'La Url debe ser única',
+            'body.required'  => 'Se necesita mínimo un párrafo',
         ]);
         $post->update([
-            'title' => $title = $request->title,
-            'slug' => Str::slug($title),
+            'title' => $request->title,
+            'slug' => $request->slug,
             'body' => $request->body,
         ]);
         
