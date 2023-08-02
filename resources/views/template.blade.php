@@ -27,8 +27,22 @@
             @endauth
 
         </header>
-        @yield('content')
-    </div>
+        <div class="opacity-60 h-px mb-8" style="
+        background: linear-gradient(
+            to right, 
+            #333, 
+            #333 50%, 
+            #eee 75%, 
+            #333 75%
+            );
+        ">
 
+        </div>
+        @yield('content')
+
+        <p class="py-16">
+            <img src="{{ asset('images/tortuga-marina.png') }}" alt="tortuga" class="h-12 mx-auto">
+        </p>
+    </div>
 </body>
 </html>
