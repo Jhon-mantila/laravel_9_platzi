@@ -41,18 +41,22 @@ Route::get('buscar', function (Request $request) {
     return $request->all();
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::redirect('/dashboard', 'posts')->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 //trabaja con todas las rutas menos con la ruta show
 //php artisan route:list
 //en la lista estaria los nombres para los metodos
-Route::resource('posts', PostController::class)->except(['show']);
+Route::resource('posts', PostController::class)->middleware(['auth', 'verified'])->except(['show']);
 
 require __DIR__.'/auth.php';
